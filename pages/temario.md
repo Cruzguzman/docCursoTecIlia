@@ -7,7 +7,7 @@ background: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=forma
 
 # CRUD con Spring Boot y JPA
 
-<div class="text-gray-200 mt-2">Nivel Intermedio · 11 Módulos</div>
+<div class="text-gray-200 mt-2">Nivel Intermedio · 13 Módulos</div>
 
 ---
 transition: slide-up
@@ -115,20 +115,20 @@ transition: slide-up
 
 # Temario — Módulos 9 al 11
 
-<div class="grid grid-cols-2 gap-4 mt-4">
+<div class="grid grid-cols-3 gap-4 mt-4">
 
 <div class="p-4 rounded-xl border border-indigo-200 bg-indigo-50 shadow-sm">
-  <div class="text-indigo-600 font-bold mb-2">✅ Módulo 9 — Validaciones</div>
+  <div class="text-indigo-600 font-bold mb-2 text-sm">✅ Módulo 9 — Validaciones</div>
   <ul class="text-xs text-gray-600 space-y-1">
     <li>spring-boot-starter-validation</li>
-    <li>@NotNull, @NotBlank, @Size, @Min, @Max</li>
+    <li>@NotNull, @NotBlank, @Size</li>
     <li>@Valid en el Controller</li>
     <li>Respuesta de error en JSON</li>
   </ul>
 </div>
 
 <div class="p-4 rounded-xl border border-red-200 bg-red-50 shadow-sm">
-  <div class="text-red-600 font-bold mb-2">🛡️ Módulo 10 — Excepciones</div>
+  <div class="text-red-600 font-bold mb-2 text-sm">🛡️ Módulo 10 — Excepciones</div>
   <ul class="text-xs text-gray-600 space-y-1">
     <li>@RestControllerAdvice</li>
     <li>GlobalExceptionHandler</li>
@@ -137,18 +137,44 @@ transition: slide-up
   </ul>
 </div>
 
-<div class="col-span-2 p-4 rounded-xl border border-emerald-200 bg-emerald-50 shadow-sm">
-  <div class="text-emerald-600 font-bold mb-2">🚀 Módulo 12 — Proyecto Final</div>
-  <div class="grid grid-cols-2 gap-4 text-xs text-gray-600 mt-1">
-    <ul class="space-y-1">
-      <li>✅ CRUD completo de la entidad Curso</li>
-      <li>✅ Todos los endpoints verificados con Postman</li>
-    </ul>
-    <ul class="space-y-1">
-      <li>✅ Buenas prácticas aplicadas</li>
-      <li>✅ Colección de Postman exportada</li>
-    </ul>
-  </div>
+<div class="p-4 rounded-xl border border-pink-200 bg-pink-50 shadow-sm">
+  <div class="text-pink-600 font-bold mb-2 text-sm">🧪 Módulo 11 — Pruebas y UML</div>
+  <ul class="text-xs text-gray-600 space-y-1">
+    <li>JUnit 5 y Mockito</li>
+    <li>Pruebas con @Mock e @InjectMocks</li>
+    <li>Controller con MockMvc</li>
+    <li>Diagramas UML</li>
+  </ul>
+</div>
+
+</div>
+
+---
+transition: slide-up
+---
+
+# Temario — Módulos 12 y 13
+
+<div class="grid grid-cols-2 gap-4 mt-4">
+
+<div class="p-4 rounded-xl border border-cyan-200 bg-cyan-50 shadow-sm">
+  <div class="text-cyan-600 font-bold mb-2">⭐ Módulo 12 — Calidad de Código</div>
+  <ul class="text-xs text-gray-600 space-y-1">
+    <li>Principios SOLID</li>
+    <li>DTOs y mappers (MapStruct)</li>
+    <li>Clean Code y code smells</li>
+    <li>JaCoCo y SonarQube</li>
+  </ul>
+</div>
+
+<div class="p-4 rounded-xl border border-emerald-200 bg-emerald-50 shadow-sm">
+  <div class="text-emerald-600 font-bold mb-2">🚀 Módulo 13 — Proyecto Final</div>
+  <ul class="text-xs text-gray-600 space-y-1">
+    <li>✅ CRUD completo de la entidad Curso</li>
+    <li>✅ Endpoints verificados con Postman</li>
+    <li>✅ Buenas prácticas aplicadas</li>
+    <li>✅ Colección de Postman exportada</li>
+  </ul>
 </div>
 
 </div>

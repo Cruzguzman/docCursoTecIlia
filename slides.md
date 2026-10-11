@@ -1728,6 +1728,137 @@ layout: section
 background: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=40
 ---
 
+<div class="text-amber-300 text-sm tracking-widest uppercase font-semibold mb-2">Módulo 12</div>
+
+# Calidad de Código
+
+<div class="text-gray-200 mt-2">SOLID · DTOs · Clean Code · Métricas</div>
+
+---
+transition: slide-up
+---
+
+# Principios SOLID
+
+<div class="grid grid-cols-1 gap-2 mt-4">
+
+<div class="flex items-center gap-4 p-3 rounded-xl border border-blue-200 bg-blue-50 shadow-sm">
+  <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-blue-600 text-white font-bold">S</div>
+  <div class="text-sm"><strong class="text-blue-700">Responsabilidad Única</strong> <span class="text-gray-600">— una clase debe tener una sola razón para cambiar</span></div>
+</div>
+
+<div class="flex items-center gap-4 p-3 rounded-xl border border-green-200 bg-green-50 shadow-sm">
+  <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-green-600 text-white font-bold">O</div>
+  <div class="text-sm"><strong class="text-green-700">Abierto/Cerrado</strong> <span class="text-gray-600">— abierto a extensión, cerrado a modificación</span></div>
+</div>
+
+<div class="flex items-center gap-4 p-3 rounded-xl border border-yellow-200 bg-yellow-50 shadow-sm">
+  <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-yellow-500 text-white font-bold">L</div>
+  <div class="text-sm"><strong class="text-yellow-700">Sustitución de Liskov</strong> <span class="text-gray-600">— una subclase debe poder reemplazar a su clase base</span></div>
+</div>
+
+<div class="flex items-center gap-4 p-3 rounded-xl border border-purple-200 bg-purple-50 shadow-sm">
+  <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-purple-600 text-white font-bold">I</div>
+  <div class="text-sm"><strong class="text-purple-700">Segregación de Interfaces</strong> <span class="text-gray-600">— interfaces pequeñas y específicas, no una gigante</span></div>
+</div>
+
+<div class="flex items-center gap-4 p-3 rounded-xl border border-red-200 bg-red-50 shadow-sm">
+  <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-red-600 text-white font-bold">D</div>
+  <div class="text-sm"><strong class="text-red-700">Inversión de Dependencias</strong> <span class="text-gray-600">— depender de abstracciones, no de implementaciones</span></div>
+</div>
+
+</div>
+
+---
+layout: two-cols
+layoutClass: gap-12
+transition: slide-up
+---
+
+# DTOs y Mappers
+
+<div class="mt-2 text-sm text-gray-600">
+Un <strong>DTO</strong> (Data Transfer Object) es un objeto que transporta datos entre capas, separado de la entidad de la BD.
+</div>
+
+<div class="mt-4 space-y-2">
+
+<div class="p-3 rounded-lg border border-red-200 bg-red-50 text-sm shadow-sm">
+  ❌ <strong>Exponer la entidad</strong> directamente filtra la estructura de la BD y crea acoplamiento
+</div>
+
+<div class="p-3 rounded-lg border border-green-200 bg-green-50 text-sm shadow-sm">
+  ✅ <strong>Usar un DTO</strong> controla qué datos entran y salen de la API
+</div>
+
+<div class="p-3 rounded-lg border border-blue-200 bg-blue-50 text-sm shadow-sm">
+  🔄 <strong>MapStruct</strong> genera el código de mapeo entre entidad y DTO automáticamente
+</div>
+
+</div>
+
+::right::
+
+# Clean Code
+
+<div class="mt-4 space-y-2">
+
+<div class="p-3 rounded-lg border border-gray-200 bg-gray-50 text-sm shadow-sm">
+  <strong class="text-gray-700">📝 Nombres descriptivos</strong><br>
+  <span class="text-xs text-gray-500">que el código se lea como una frase</span>
+</div>
+<div class="p-3 rounded-lg border border-gray-200 bg-gray-50 text-sm shadow-sm">
+  <strong class="text-gray-700">✂️ Métodos cortos</strong><br>
+  <span class="text-xs text-gray-500">una sola responsabilidad por método</span>
+</div>
+<div class="p-3 rounded-lg border border-gray-200 bg-gray-50 text-sm shadow-sm">
+  <strong class="text-gray-700">🔁 DRY</strong><br>
+  <span class="text-xs text-gray-500">Don't Repeat Yourself — evitar duplicación</span>
+</div>
+<div class="p-3 rounded-lg border border-gray-200 bg-gray-50 text-sm shadow-sm">
+  <strong class="text-gray-700">👃 Code smells</strong><br>
+  <span class="text-xs text-gray-500">señales de código que necesita refactor</span>
+</div>
+
+</div>
+
+---
+transition: slide-up
+---
+
+# Métricas y Análisis Estático
+
+<div class="grid grid-cols-3 gap-4 mt-6">
+
+<div class="p-4 rounded-xl border border-green-200 bg-green-50 shadow-sm text-center">
+  <div class="text-4xl mb-2">📊</div>
+  <div class="text-green-600 font-bold">JaCoCo</div>
+  <div class="text-xs text-gray-600 mt-2">Mide el <strong>porcentaje de código cubierto</strong> por las pruebas unitarias.</div>
+</div>
+
+<div class="p-4 rounded-xl border border-blue-200 bg-blue-50 shadow-sm text-center">
+  <div class="text-4xl mb-2">🔍</div>
+  <div class="text-blue-600 font-bold">SonarQube</div>
+  <div class="text-xs text-gray-600 mt-2">Analiza el código y detecta <strong>bugs, vulnerabilidades y code smells</strong>.</div>
+</div>
+
+<div class="p-4 rounded-xl border border-orange-200 bg-orange-50 shadow-sm text-center">
+  <div class="text-4xl mb-2">⚖️</div>
+  <div class="text-orange-600 font-bold">Deuda Técnica</div>
+  <div class="text-xs text-gray-600 mt-2">El <strong>costo futuro</strong> de atajos tomados hoy. Hay que medirla y controlarla.</div>
+</div>
+
+</div>
+
+<div class="mt-6 p-3 rounded-xl border border-amber-200 bg-amber-50 text-center text-sm text-amber-700 shadow-sm">
+  💡 Código de calidad = más fácil de mantener, probar, escalar y entender por el equipo
+</div>
+
+---
+layout: section
+background: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=40
+---
+
 <div class="text-cyan-300 text-sm tracking-widest uppercase font-semibold mb-2">Automatización</div>
 
 # CI/CD

@@ -178,7 +178,34 @@
 
 ---
 
-## Módulo 12 — Proyecto Final
+## Módulo 12 — Calidad de Código
+
+12.1 Principios SOLID
+   - S — Responsabilidad única
+   - O — Abierto/Cerrado
+   - L — Sustitución de Liskov
+   - I — Segregación de interfaces
+   - D — Inversión de dependencias
+
+12.2 DTOs y mappers
+   - ¿Por qué no exponer las entidades directamente?
+   - Patrón DTO (Data Transfer Object)
+   - MapStruct para mapeo automático
+
+12.3 Clean Code
+   - Nombres descriptivos
+   - Métodos cortos y con una sola responsabilidad
+   - Evitar código duplicado (DRY)
+   - Code smells comunes
+
+12.4 Métricas y análisis estático
+   - Cobertura de pruebas con JaCoCo
+   - Análisis estático con SonarQube
+   - Deuda técnica
+
+---
+
+## Módulo 13 — Proyecto Final
 
 11.1 Construir el CRUD completo de la entidad `Curso` aplicando todos los módulos
 11.2 Verificar todos los endpoints con Postman
