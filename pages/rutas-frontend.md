@@ -1,7 +1,7 @@
 ---
 layout: section
 routeAlias: ruta-frontend
-background: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=40
+background: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1920&q=60
 ---
 
 <div class="text-pink-300 text-sm tracking-widest uppercase font-semibold mb-2">Plan de Carrera</div>

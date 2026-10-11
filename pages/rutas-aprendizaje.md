@@ -1,7 +1,7 @@
 ---
 layout: section
 routeAlias: ruta-bd
-background: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=40
+background: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1920&q=60
 ---
 
 <div class="text-teal-300 text-sm tracking-widest uppercase font-semibold mb-2">Plan de Carrera</div>
