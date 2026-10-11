@@ -39,7 +39,7 @@ fonts:
   <button @click="$slidev.nav.go(8)" class="px-5 py-2 rounded-full border border-teal-300/60 bg-teal-500/20 text-teal-100 text-sm font-medium hover:bg-teal-500/30 transition-colors cursor-pointer">
     🧭 Rutas de Aprendizaje
   </button>
-  <button @click="$slidev.nav.go(31)" class="px-5 py-2 rounded-full border border-blue-300/60 bg-blue-500/20 text-blue-100 text-sm font-medium hover:bg-blue-500/30 transition-colors cursor-pointer">
+  <button @click="$slidev.nav.go(38)" class="px-5 py-2 rounded-full border border-blue-300/60 bg-blue-500/20 text-blue-100 text-sm font-medium hover:bg-blue-500/30 transition-colors cursor-pointer">
     📖 Ver Contenido
   </button>
 </div>
@@ -66,6 +66,10 @@ src: ./pages/rutas-backend.md
 
 ---
 src: ./pages/rutas-frontend.md
+---
+
+---
+src: ./pages/rutas-ciberseguridad.md
 ---
 
 ---
