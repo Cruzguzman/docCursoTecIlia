@@ -462,7 +462,7 @@ Spring Boot es un framework basado en Spring que permite crear aplicaciones Java
 </div>
 <div class="flex items-center justify-center">
   <div class="p-8 rounded-2xl border border-green-200 bg-green-50 text-center shadow-sm">
-    <div class="text-6xl mb-4">☕</div>
+    <div class="flex justify-center mb-4"><logos-spring-icon class="text-6xl" /></div>
     <div class="text-green-700 font-bold">Spring Boot</div>
     <div class="text-gray-500 text-sm mt-1">v3.x · Java 17+</div>
   </div>
@@ -1450,7 +1450,7 @@ Las pruebas unitarias verifican que cada componente funciona correctamente de fo
 </div>
 <div class="flex items-center justify-center">
   <div class="p-6 rounded-2xl border border-pink-200 bg-pink-50 shadow-sm text-center">
-    <div class="text-5xl mb-3">🧪</div>
+    <div class="flex justify-center gap-3 mb-3 text-pink-500"><carbon-chemistry class="text-5xl" /><carbon-checkmark-outline class="text-5xl" /></div>
     <div class="text-pink-700 font-bold">JUnit 5 + Mockito</div>
     <div class="text-gray-500 text-sm mt-2">spring-boot-starter-test</div>
     <div class="text-xs text-gray-400 mt-1">Incluido por defecto en Spring Boot</div>
