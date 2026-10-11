@@ -1,0 +1,14 @@
+/* Color del fondo detrás de las diapositivas (letterboxing / barras laterales) */
+#slide-container,
+.slidev-nav-wrapper,
+body,
+html {
+  background: #f1f5f9; /* gris muy claro (slate-100) */
+}
+
+/* El canvas donde se escalan las slides */
+.slidev-page,
+#page-root,
+.slidev-layout {
+  background: #f1f5f9;
+}
