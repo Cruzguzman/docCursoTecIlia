@@ -32,11 +32,14 @@ fonts:
   Construye una API REST completa desde cero
 </div>
 
-<div class="mt-6 flex justify-center gap-4">
+<div class="mt-6 flex justify-center gap-3 flex-wrap">
   <button @click="$slidev.nav.go(2)" class="px-5 py-2 rounded-full border border-white/40 bg-white/10 text-white text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">
     📋 Ver Temario
   </button>
-  <button @click="$slidev.nav.go(8)" class="px-5 py-2 rounded-full border border-blue-300/60 bg-blue-500/20 text-blue-100 text-sm font-medium hover:bg-blue-500/30 transition-colors cursor-pointer">
+  <button @click="$slidev.nav.go(8)" class="px-5 py-2 rounded-full border border-teal-300/60 bg-teal-500/20 text-teal-100 text-sm font-medium hover:bg-teal-500/30 transition-colors cursor-pointer">
+    🧭 Ruta de Aprendizaje
+  </button>
+  <button @click="$slidev.nav.go(15)" class="px-5 py-2 rounded-full border border-blue-300/60 bg-blue-500/20 text-blue-100 text-sm font-medium hover:bg-blue-500/30 transition-colors cursor-pointer">
     📖 Ver Contenido
   </button>
 </div>
@@ -47,6 +50,10 @@ fonts:
 
 ---
 src: ./pages/temario.md
+---
+
+---
+src: ./pages/rutas-aprendizaje.md
 ---
 
 ---
