@@ -188,37 +188,37 @@ transition: slide-up
 <div class="grid grid-cols-3 gap-3 mt-4">
 
 <div class="p-3 rounded-xl border border-gray-200 bg-gray-50 text-center shadow-sm">
-  <div class="text-2xl mb-1">☕</div>
+  <div class="flex justify-center mb-1"><logos-java class="text-3xl" /></div>
   <div class="text-gray-700 font-bold text-sm">Java 21</div>
   <div class="text-xs text-gray-400">Lenguaje principal</div>
 </div>
 
 <div class="p-3 rounded-xl border border-green-200 bg-green-50 text-center shadow-sm">
-  <div class="text-2xl mb-1">🍃</div>
+  <div class="flex justify-center mb-1"><logos-spring-icon class="text-3xl" /></div>
   <div class="text-green-700 font-bold text-sm">Spring Boot 3.2</div>
   <div class="text-xs text-gray-400">Framework</div>
 </div>
 
 <div class="p-3 rounded-xl border border-blue-200 bg-blue-50 text-center shadow-sm">
-  <div class="text-2xl mb-1">🔧</div>
+  <div class="flex justify-center mb-1"><logos-maven class="text-3xl" /></div>
   <div class="text-blue-700 font-bold text-sm">Maven 3.9</div>
   <div class="text-xs text-gray-400">Gestión de dependencias</div>
 </div>
 
 <div class="p-3 rounded-xl border border-purple-200 bg-purple-50 text-center shadow-sm">
-  <div class="text-2xl mb-1">🗄️</div>
+  <div class="flex justify-center mb-1"><logos-hibernate class="text-3xl" /></div>
   <div class="text-purple-700 font-bold text-sm">Spring Data JPA</div>
   <div class="text-xs text-gray-400">Persistencia</div>
 </div>
 
 <div class="p-3 rounded-xl border border-orange-200 bg-orange-50 text-center shadow-sm">
-  <div class="text-2xl mb-1">🐘</div>
+  <div class="flex justify-center mb-1 gap-1"><logos-mysql-icon class="text-3xl" /><logos-postgresql class="text-3xl" /></div>
   <div class="text-orange-700 font-bold text-sm">H2 / MySQL / PostgreSQL</div>
   <div class="text-xs text-gray-400">Base de datos</div>
 </div>
 
 <div class="p-3 rounded-xl border border-red-200 bg-red-50 text-center shadow-sm">
-  <div class="text-2xl mb-1">🧪</div>
+  <div class="flex justify-center mb-1"><logos-postman-icon class="text-3xl" /></div>
   <div class="text-red-700 font-bold text-sm">Postman</div>
   <div class="text-xs text-gray-400">Pruebas de endpoints</div>
 </div>
