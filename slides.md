@@ -48,6 +48,16 @@ fonts:
 
 </div>
 
+<!--
+Bienvenida al curso. Presentarse y dar contexto:
+- Este curso construye una API REST CRUD completa con Spring Boot y JPA.
+- Nivel intermedio: se asume que ya conocen Java básico.
+- Usar el botón "Ver Temario" para mostrar el recorrido completo.
+- "Rutas de Aprendizaje" muestra planes de carrera por especialidad.
+- "Ver Contenido" salta directo a la teoría.
+Preguntar al grupo qué experiencia previa tienen con Spring para calibrar el ritmo.
+-->
+
 ---
 src: ./pages/temario.md
 ---
@@ -1634,6 +1644,8 @@ transition: slide-up
 
 <div class="grid grid-cols-3 gap-3 mt-6">
 
+<v-clicks>
+
 <div class="p-3 rounded-xl border border-blue-200 bg-blue-50 shadow-sm text-sm text-gray-700">🔗 <strong>REST</strong></div>
 <div class="p-3 rounded-xl border border-pink-200 bg-pink-50 shadow-sm text-sm text-gray-700">🔺 <strong>GraphQL</strong></div>
 <div class="p-3 rounded-xl border border-green-200 bg-green-50 shadow-sm text-sm text-gray-700">⚡ <strong>gRPC</strong></div>
@@ -1647,7 +1659,18 @@ transition: slide-up
 <div class="p-3 rounded-xl border border-lime-200 bg-lime-50 shadow-sm text-sm text-gray-700">🖥️ <strong>BFF (Backend for Frontend)</strong></div>
 <div class="p-3 rounded-xl border border-fuchsia-200 bg-fuchsia-50 shadow-sm text-sm text-gray-700">🕸️ <strong>Service Mesh</strong></div>
 
+</v-clicks>
+
 </div>
+
+<!--
+Estas son las arquitecturas más comunes en el diseño de APIs y microservicios.
+REST y GraphQL son las más usadas hoy en día para APIs públicas. gRPC destaca
+en comunicación entre microservicios por su rendimiento. Las de la segunda mitad
+(Hexagonal, Clean, CQRS, Saga) son patrones arquitectónicos que se combinan entre sí.
+No hace falta memorizarlas todas: lo importante es saber que existen y cuándo aplicar cada una.
+-->
+
 
 ---
 layout: section
@@ -1688,6 +1711,14 @@ Propuesta por **Alistair Cockburn** en 2005, su objetivo es **aislar la lógica 
   </div>
 </div>
 </div>
+
+<!--
+La arquitectura hexagonal busca aislar la lógica de negocio del mundo exterior.
+Analogía útil: el dominio es como el motor de un auto; los adaptadores son las
+ruedas, el volante, los pedales. Puedes cambiar las ruedas sin tocar el motor.
+Ventaja clave: puedes probar el dominio sin base de datos ni framework, lo que
+hace las pruebas rápidas y fiables. Es más código al inicio, pero paga a largo plazo.
+-->
 
 ---
 transition: slide-up
@@ -1882,6 +1913,8 @@ transition: slide-up
 
 <div class="grid grid-cols-3 gap-4 mt-4">
 
+<v-clicks>
+
 <div class="p-4 rounded-xl border border-blue-200 bg-blue-50 shadow-sm">
   <div class="text-blue-600 font-bold mb-2 text-sm">🏗️ Creacionales</div>
   <ul class="text-xs text-gray-600 space-y-1">
@@ -1923,11 +1956,23 @@ transition: slide-up
   </ul>
 </div>
 
+</v-clicks>
+
 </div>
 
 <div class="mt-4 text-xs text-gray-400 text-center">
   23 patrones del Gang of Four (GoF) · Soluciones reutilizables a problemas comunes de diseño
 </div>
+
+<!--
+Los patrones de diseño del GoF son soluciones probadas a problemas recurrentes.
+Creacionales: cómo crear objetos (Singleton y Factory son los más usados en Spring).
+Estructurales: cómo componer objetos (Adapter y Decorator muy comunes).
+De comportamiento: cómo interactúan los objetos (Observer y Strategy son clave).
+Spring Framework usa muchos de estos internamente: Singleton en los beans,
+Factory en los contextos, Proxy en AOP, Template Method en los JdbcTemplate.
+-->
+
 
 ---
 layout: section
