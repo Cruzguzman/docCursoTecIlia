@@ -36,7 +36,7 @@ fonts:
   <button @click="$slidev.nav.go(2)" class="px-5 py-2 rounded-full border border-white/40 bg-white/10 text-white text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">
     📋 Ver Temario
   </button>
-  <button @click="$slidev.nav.go(7)" class="px-5 py-2 rounded-full border border-blue-300/60 bg-blue-500/20 text-blue-100 text-sm font-medium hover:bg-blue-500/30 transition-colors cursor-pointer">
+  <button @click="$slidev.nav.go(8)" class="px-5 py-2 rounded-full border border-blue-300/60 bg-blue-500/20 text-blue-100 text-sm font-medium hover:bg-blue-500/30 transition-colors cursor-pointer">
     📖 Ver Contenido
   </button>
 </div>
