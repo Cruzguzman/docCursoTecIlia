@@ -1,5 +1,6 @@
 ---
 layout: section
+routeAlias: temario
 background: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=40
 ---
 
@@ -230,7 +231,7 @@ transition: slide-up
 </div>
 
 <div class="mt-6 flex justify-center">
-  <button @click="$slidev.nav.go(45)" class="px-6 py-2 rounded-full border border-blue-300 bg-blue-100 text-blue-700 text-sm font-medium hover:bg-blue-200 transition-colors cursor-pointer shadow-sm">
+  <button @click="$slidev.nav.go('contenido')" class="px-6 py-2 rounded-full border border-blue-300 bg-blue-100 text-blue-700 text-sm font-medium hover:bg-blue-200 transition-colors cursor-pointer shadow-sm">
     📖 Ir al Contenido del Curso →
   </button>
 </div>

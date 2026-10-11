@@ -1,5 +1,6 @@
 ---
 layout: section
+routeAlias: ruta-frontend
 background: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=40
 ---
 
@@ -254,7 +255,7 @@ transition: slide-up
 </div>
 
 <div class="mt-6 flex justify-center gap-3">
-  <button @click="$slidev.nav.go(8)" class="px-6 py-2 rounded-full border border-gray-300 bg-gray-100 text-gray-600 text-sm font-medium hover:bg-gray-200 transition-colors cursor-pointer shadow-sm">
+  <button @click="$slidev.nav.go('rutas')" class="px-6 py-2 rounded-full border border-gray-300 bg-gray-100 text-gray-600 text-sm font-medium hover:bg-gray-200 transition-colors cursor-pointer shadow-sm">
     ← Volver a Rutas
   </button>
   <button @click="$slidev.nav.go(1)" class="px-6 py-2 rounded-full border border-pink-300 bg-pink-100 text-pink-700 text-sm font-medium hover:bg-pink-200 transition-colors cursor-pointer shadow-sm">
