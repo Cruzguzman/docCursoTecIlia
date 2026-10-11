@@ -553,14 +553,22 @@ transition: slide-up
 
 </div>
 
-<div class="mt-6 p-4 rounded-xl border border-gray-200 bg-gray-50 text-center shadow-sm">
-  <div class="text-sm text-gray-700 font-mono">
-    Cliente HTTP
-    <span class="text-blue-500 mx-2">→</span> Controller
-    <span class="text-purple-500 mx-2">→</span> Service
-    <span class="text-green-500 mx-2">→</span> Repository
-    <span class="text-yellow-500 mx-2">→</span> Base de Datos
-  </div>
+<div class="flex justify-center mt-6">
+
+```mermaid {scale: 0.62}
+flowchart LR
+    A([Cliente HTTP]) --> B[Controller]
+    B --> C[Service]
+    C --> D[Repository]
+    D --> E[(Base de Datos)]
+    E -.-> D -.-> C -.-> B -.-> A
+    style A fill:#e0e7ff,stroke:#6366f1,color:#1e1b4b
+    style B fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style C fill:#f3e8ff,stroke:#a855f7,color:#581c87
+    style D fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style E fill:#fef9c3,stroke:#eab308,color:#713f12
+```
+
 </div>
 
 <div class="mt-3 text-xs text-gray-400 text-center">
@@ -1065,23 +1073,18 @@ transition: slide-up
 
 ### Flujo de una excepción
 
-<div class="mt-4 space-y-2 text-sm">
+<div class="flex justify-center mt-4">
 
-<div class="p-2 rounded-lg border border-red-200 bg-red-50 text-center text-gray-600 shadow-sm">
-  Repository no encuentra el registro
-</div>
-<div class="text-center text-gray-400">↓</div>
-<div class="p-2 rounded-lg border border-yellow-200 bg-yellow-50 text-center font-mono text-xs text-yellow-700 shadow-sm">
-  Service lanza RecursoNoEncontradoException
-</div>
-<div class="text-center text-gray-400">↓</div>
-<div class="p-2 rounded-lg border border-blue-200 bg-blue-50 text-center font-mono text-xs text-blue-700 shadow-sm">
-  GlobalExceptionHandler la captura
-</div>
-<div class="text-center text-gray-400">↓</div>
-<div class="p-2 rounded-lg border border-green-200 bg-green-50 text-center text-xs text-green-700 shadow-sm">
-  Retorna 404 con mensaje descriptivo en JSON
-</div>
+```mermaid {scale: 0.5}
+flowchart TD
+    A[Repository no encuentra el registro] --> B[Service lanza<br/>RecursoNoEncontradoException]
+    B --> C[GlobalExceptionHandler<br/>la captura]
+    C --> D[Retorna 404 con mensaje<br/>descriptivo en JSON]
+    style A fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style B fill:#fef9c3,stroke:#eab308,color:#713f12
+    style C fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style D fill:#dcfce7,stroke:#22c55e,color:#14532d
+```
 
 </div>
 </div>
@@ -1407,41 +1410,108 @@ Con **MockMvc** simulamos peticiones HTTP sin levantar el servidor.
 transition: slide-up
 ---
 
-# Diagramas UML del Proyecto
+# Diagrama de Clases (UML)
+
+<div class="grid grid-cols-2 gap-6 mt-2 items-center">
+<div class="flex justify-center">
+
+```mermaid {scale: 0.55}
+classDiagram
+    class Curso {
+        +Long id
+        +String nombre
+        +String descripcion
+        +Double precio
+        +Boolean activo
+    }
+    class CursoController {
+        +listar()
+        +buscarPorId(id)
+        +crear(curso)
+        +actualizar(id, curso)
+        +eliminar(id)
+    }
+    class CursoService {
+        <<interface>>
+    }
+    class CursoRepository {
+        <<interface>>
+    }
+    CursoController --> CursoService
+    CursoService --> CursoRepository
+    CursoRepository --> Curso
+```
+
+</div>
+<div class="text-sm text-gray-600">
+
+Representa las **entidades** del sistema y sus **relaciones**.
+
+<div class="mt-3 space-y-2 text-xs">
+<div class="p-2 rounded-lg border border-blue-200 bg-blue-50 shadow-sm">La entidad <strong>Curso</strong> con sus atributos</div>
+<div class="p-2 rounded-lg border border-purple-200 bg-purple-50 shadow-sm">Las interfaces <strong>Service</strong> y <strong>Repository</strong></div>
+<div class="p-2 rounded-lg border border-green-200 bg-green-50 shadow-sm">Dependencias entre capas</div>
+</div>
+
+</div>
+</div>
+
+---
+transition: slide-up
+---
+
+# Diagrama de Secuencia (UML)
+
+<div class="flex justify-center mt-2">
+
+```mermaid {scale: 0.52}
+sequenceDiagram
+    participant C as Cliente
+    participant Co as Controller
+    participant S as Service
+    participant R as Repository
+    participant DB as Base de Datos
+    C->>Co: GET /api/v1/cursos/1
+    Co->>S: buscarPorId(1)
+    S->>R: findById(1)
+    R->>DB: SELECT * WHERE id=1
+    DB-->>R: registro
+    R-->>S: Optional~Curso~
+    S-->>Co: Curso
+    Co-->>C: 200 OK + JSON
+```
+
+</div>
+
+<div class="mt-2 text-xs text-gray-400 text-center">
+  Flujo completo de una petición REST de extremo a extremo
+</div>
+
+---
+transition: slide-up
+---
+
+# Herramientas UML
 
 <div class="grid grid-cols-2 gap-6 mt-4">
 
-<div class="p-4 rounded-xl border border-blue-200 bg-blue-50 shadow-sm">
-  <div class="text-blue-600 font-bold mb-2">📐 Diagrama de Clases</div>
-  <div class="text-xs text-gray-600 space-y-1">
-    <p>Representa las entidades del sistema y sus relaciones.</p>
-    <p class="mt-2">Muestra: <strong>Curso</strong> con sus atributos, y las interfaces <strong>CursoService</strong>, <strong>CursoRepository</strong>.</p>
-  </div>
-</div>
-
-<div class="p-4 rounded-xl border border-purple-200 bg-purple-50 shadow-sm">
-  <div class="text-purple-600 font-bold mb-2">🔄 Diagrama de Secuencia</div>
-  <div class="text-xs text-gray-600 space-y-1">
-    <p>Muestra el flujo de una petición REST de extremo a extremo.</p>
-    <p class="mt-2">Cliente → Controller → Service → Repository → BD → Respuesta</p>
-  </div>
-</div>
-
 <div class="p-4 rounded-xl border border-green-200 bg-green-50 shadow-sm">
-  <div class="text-green-600 font-bold mb-2">🧩 Diagrama de Componentes</div>
-  <div class="text-xs text-gray-600 space-y-1">
-    <p>Vista de la arquitectura en capas del sistema.</p>
-    <p class="mt-2">Representa las dependencias entre Controller, Service, Repository y la BD.</p>
-  </div>
+  <div class="text-green-600 font-bold mb-2">🧩 Tipos de diagramas</div>
+  <ul class="text-xs text-gray-600 space-y-1">
+    <li><strong>Clases</strong> — estructura y relaciones</li>
+    <li><strong>Secuencia</strong> — flujo temporal de mensajes</li>
+    <li><strong>Componentes</strong> — arquitectura del sistema</li>
+    <li><strong>Casos de uso</strong> — interacción con el usuario</li>
+  </ul>
 </div>
 
 <div class="p-4 rounded-xl border border-orange-200 bg-orange-50 shadow-sm">
-  <div class="text-orange-600 font-bold mb-2">🛠️ Herramientas UML</div>
+  <div class="text-orange-600 font-bold mb-2">🛠️ Herramientas</div>
   <ul class="text-xs text-gray-600 space-y-1">
-    <li>🔹 <strong>PlantUML</strong> — diagramas en texto plano</li>
-    <li>🔹 <strong>draw.io</strong> — editor visual gratuito</li>
-    <li>🔹 <strong>StarUML</strong> — herramienta profesional</li>
-    <li>🔹 <strong>IntelliJ IDEA</strong> — genera UML desde código</li>
+    <li><strong>Mermaid</strong> — diagramas como código (usado aquí)</li>
+    <li><strong>PlantUML</strong> — diagramas en texto plano</li>
+    <li><strong>draw.io</strong> — editor visual gratuito</li>
+    <li><strong>IntelliJ IDEA</strong> — genera UML desde código</li>
   </ul>
 </div>
 
