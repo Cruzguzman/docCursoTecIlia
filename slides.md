@@ -1269,6 +1269,158 @@ Herramienta para probar, documentar y gestionar APIs. Permite enviar peticiones 
 </div>
 
 ---
+layout: section
+background: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=40
+---
+
+<div class="text-pink-300 text-sm tracking-widest uppercase font-semibold mb-2">Sección 08</div>
+
+# Pruebas Unitarias & UML
+
+<div class="text-gray-200 mt-2">JUnit 5 · Mockito · MockMvc · Diagramas UML</div>
+
+---
+transition: slide-up
+---
+
+# Pruebas Unitarias con JUnit 5
+
+<div class="grid grid-cols-2 gap-8 mt-2">
+<div>
+
+Las pruebas unitarias verifican que cada componente funciona correctamente de forma aislada, sin depender de la base de datos ni de otros servicios.
+
+<div class="mt-4 space-y-2 text-sm">
+
+<div class="p-3 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+  <code class="text-pink-600">@Test</code> — Marca un método como prueba
+</div>
+<div class="p-3 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+  <code class="text-blue-600">@BeforeEach</code> — Se ejecuta antes de cada prueba
+</div>
+<div class="p-3 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+  <code class="text-green-600">@AfterEach</code> — Se ejecuta después de cada prueba
+</div>
+<div class="p-3 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+  <code class="text-purple-600">@SpringBootTest</code> — Carga el contexto completo
+</div>
+<div class="p-3 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+  <code class="text-orange-600">@ExtendWith(MockitoExtension.class)</code> — Activa Mockito
+</div>
+
+</div>
+</div>
+<div class="flex items-center justify-center">
+  <div class="p-6 rounded-2xl border border-pink-200 bg-pink-50 shadow-sm text-center">
+    <div class="text-5xl mb-3">🧪</div>
+    <div class="text-pink-700 font-bold">JUnit 5 + Mockito</div>
+    <div class="text-gray-500 text-sm mt-2">spring-boot-starter-test</div>
+    <div class="text-xs text-gray-400 mt-1">Incluido por defecto en Spring Boot</div>
+  </div>
+</div>
+</div>
+
+---
+layout: two-cols
+layoutClass: gap-12
+transition: slide-up
+---
+
+# Pruebas del Service
+
+Con **Mockito** simulamos el Repository para probar el Service de forma aislada.
+
+<div class="mt-4 space-y-2">
+
+<div class="p-2 rounded-lg border border-gray-200 bg-gray-50 text-xs shadow-sm">
+  <code class="text-pink-600">@Mock</code> — Crea un objeto simulado del Repository
+</div>
+<div class="p-2 rounded-lg border border-gray-200 bg-gray-50 text-xs shadow-sm">
+  <code class="text-blue-600">@InjectMocks</code> — Inyecta los mocks en el Service
+</div>
+<div class="p-2 rounded-lg border border-gray-200 bg-gray-50 text-xs shadow-sm">
+  <code class="text-green-600">when().thenReturn()</code> — Define qué retorna el mock
+</div>
+<div class="p-2 rounded-lg border border-gray-200 bg-gray-50 text-xs shadow-sm">
+  <code class="text-yellow-600">verify()</code> — Verifica que se llamó un método
+</div>
+<div class="p-2 rounded-lg border border-gray-200 bg-gray-50 text-xs shadow-sm">
+  <code class="text-purple-600">assertThat()</code> — Verifica el resultado esperado
+</div>
+
+</div>
+
+::right::
+
+# Pruebas del Controller
+
+Con **MockMvc** simulamos peticiones HTTP sin levantar el servidor.
+
+<div class="mt-4 space-y-2">
+
+<div class="p-2 rounded-lg border border-gray-200 bg-gray-50 text-xs shadow-sm">
+  <code class="text-pink-600">@WebMvcTest</code> — Carga solo la capa Controller
+</div>
+<div class="p-2 rounded-lg border border-gray-200 bg-gray-50 text-xs shadow-sm">
+  <code class="text-blue-600">@MockBean</code> — Simula el Service en el contexto
+</div>
+<div class="p-2 rounded-lg border border-gray-200 bg-gray-50 text-xs shadow-sm">
+  <code class="text-green-600">mockMvc.perform(get("/api/v1/cursos"))</code>
+</div>
+<div class="p-2 rounded-lg border border-gray-200 bg-gray-50 text-xs shadow-sm">
+  <code class="text-yellow-600">.andExpect(status().isOk())</code>
+</div>
+<div class="p-2 rounded-lg border border-gray-200 bg-gray-50 text-xs shadow-sm">
+  <code class="text-purple-600">.andExpect(jsonPath("$[0].nombre"))</code>
+</div>
+
+</div>
+
+---
+transition: slide-up
+---
+
+# Diagramas UML del Proyecto
+
+<div class="grid grid-cols-2 gap-6 mt-4">
+
+<div class="p-4 rounded-xl border border-blue-200 bg-blue-50 shadow-sm">
+  <div class="text-blue-600 font-bold mb-2">📐 Diagrama de Clases</div>
+  <div class="text-xs text-gray-600 space-y-1">
+    <p>Representa las entidades del sistema y sus relaciones.</p>
+    <p class="mt-2">Muestra: <strong>Curso</strong> con sus atributos, y las interfaces <strong>CursoService</strong>, <strong>CursoRepository</strong>.</p>
+  </div>
+</div>
+
+<div class="p-4 rounded-xl border border-purple-200 bg-purple-50 shadow-sm">
+  <div class="text-purple-600 font-bold mb-2">🔄 Diagrama de Secuencia</div>
+  <div class="text-xs text-gray-600 space-y-1">
+    <p>Muestra el flujo de una petición REST de extremo a extremo.</p>
+    <p class="mt-2">Cliente → Controller → Service → Repository → BD → Respuesta</p>
+  </div>
+</div>
+
+<div class="p-4 rounded-xl border border-green-200 bg-green-50 shadow-sm">
+  <div class="text-green-600 font-bold mb-2">🧩 Diagrama de Componentes</div>
+  <div class="text-xs text-gray-600 space-y-1">
+    <p>Vista de la arquitectura en capas del sistema.</p>
+    <p class="mt-2">Representa las dependencias entre Controller, Service, Repository y la BD.</p>
+  </div>
+</div>
+
+<div class="p-4 rounded-xl border border-orange-200 bg-orange-50 shadow-sm">
+  <div class="text-orange-600 font-bold mb-2">🛠️ Herramientas UML</div>
+  <ul class="text-xs text-gray-600 space-y-1">
+    <li>🔹 <strong>PlantUML</strong> — diagramas en texto plano</li>
+    <li>🔹 <strong>draw.io</strong> — editor visual gratuito</li>
+    <li>🔹 <strong>StarUML</strong> — herramienta profesional</li>
+    <li>🔹 <strong>IntelliJ IDEA</strong> — genera UML desde código</li>
+  </ul>
+</div>
+
+</div>
+
+---
 layout: center
 class: text-center
 ---

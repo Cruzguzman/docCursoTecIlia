@@ -153,7 +153,32 @@
 
 ---
 
-## Módulo 11 — Proyecto Final
+## Módulo 11 — Pruebas Unitarias y Diagramas UML
+
+11.1 Pruebas unitarias con JUnit 5 y Mockito
+   - Dependencias: `spring-boot-starter-test`
+   - Estructura de una prueba unitaria
+   - Anotaciones: `@Test`, `@BeforeEach`, `@AfterEach`
+
+11.2 Pruebas del Service con Mockito
+   - `@Mock` y `@InjectMocks`
+   - Simular comportamiento del Repository con `when().thenReturn()`
+   - Verificar llamadas con `verify()`
+
+11.3 Pruebas del Controller con MockMvc
+   - `@WebMvcTest`
+   - Simular peticiones HTTP
+   - Verificar respuestas y códigos HTTP
+
+11.4 Diagramas UML del proyecto
+   - Diagrama de clases: entidades y relaciones
+   - Diagrama de secuencia: flujo de una petición REST
+   - Diagrama de componentes: arquitectura en capas
+   - Herramientas: PlantUML, draw.io, StarUML
+
+---
+
+## Módulo 12 — Proyecto Final
 
 11.1 Construir el CRUD completo de la entidad `Curso` aplicando todos los módulos
 11.2 Verificar todos los endpoints con Postman

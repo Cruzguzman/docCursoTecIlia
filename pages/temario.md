@@ -138,7 +138,7 @@ transition: slide-up
 </div>
 
 <div class="col-span-2 p-4 rounded-xl border border-emerald-200 bg-emerald-50 shadow-sm">
-  <div class="text-emerald-600 font-bold mb-2">🚀 Módulo 11 — Proyecto Final</div>
+  <div class="text-emerald-600 font-bold mb-2">🚀 Módulo 12 — Proyecto Final</div>
   <div class="grid grid-cols-2 gap-4 text-xs text-gray-600 mt-1">
     <ul class="space-y-1">
       <li>✅ CRUD completo de la entidad Curso</li>
