@@ -2135,6 +2135,10 @@ class: text-center
   <span class="px-4 py-2 rounded-full border border-yellow-300/60 bg-yellow-500/20 text-yellow-200 font-medium">Base de Datos</span>
 </div>
 
-
+<div class="mt-10">
+  <button @click="$slidev.nav.go(1)" class="px-6 py-2 rounded-full border border-white/40 bg-white/10 text-white text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">
+    🏠 Volver al Inicio
+  </button>
+</div>
 
 </div>
