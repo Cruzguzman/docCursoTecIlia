@@ -37,9 +37,9 @@ fonts:
     📋 Ver Temario
   </button>
   <button @click="$slidev.nav.go(8)" class="px-5 py-2 rounded-full border border-teal-300/60 bg-teal-500/20 text-teal-100 text-sm font-medium hover:bg-teal-500/30 transition-colors cursor-pointer">
-    🧭 Ruta de Aprendizaje
+    🧭 Rutas de Aprendizaje
   </button>
-  <button @click="$slidev.nav.go(15)" class="px-5 py-2 rounded-full border border-blue-300/60 bg-blue-500/20 text-blue-100 text-sm font-medium hover:bg-blue-500/30 transition-colors cursor-pointer">
+  <button @click="$slidev.nav.go(24)" class="px-5 py-2 rounded-full border border-blue-300/60 bg-blue-500/20 text-blue-100 text-sm font-medium hover:bg-blue-500/30 transition-colors cursor-pointer">
     📖 Ver Contenido
   </button>
 </div>
@@ -53,7 +53,15 @@ src: ./pages/temario.md
 ---
 
 ---
+src: ./pages/rutas-selector.md
+---
+
+---
 src: ./pages/rutas-aprendizaje.md
+---
+
+---
+src: ./pages/rutas-backend.md
 ---
 
 ---

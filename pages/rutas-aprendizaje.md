@@ -250,7 +250,10 @@ transition: slide-up
 
 </div>
 
-<div class="mt-6 flex justify-center">
+<div class="mt-6 flex justify-center gap-3">
+  <button @click="$slidev.nav.go(8)" class="px-6 py-2 rounded-full border border-gray-300 bg-gray-100 text-gray-600 text-sm font-medium hover:bg-gray-200 transition-colors cursor-pointer shadow-sm">
+    ← Volver a Rutas
+  </button>
   <button @click="$slidev.nav.go(1)" class="px-6 py-2 rounded-full border border-teal-300 bg-teal-100 text-teal-700 text-sm font-medium hover:bg-teal-200 transition-colors cursor-pointer shadow-sm">
     🏠 Volver al Inicio
   </button>
