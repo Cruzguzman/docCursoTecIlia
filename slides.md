@@ -1421,6 +1421,415 @@ transition: slide-up
 </div>
 
 ---
+transition: slide-up
+---
+
+# Arquitecturas para APIs y Microservicios
+
+<div class="grid grid-cols-3 gap-3 mt-6">
+
+<div class="p-3 rounded-xl border border-blue-200 bg-blue-50 shadow-sm text-sm text-gray-700">🔗 <strong>REST</strong></div>
+<div class="p-3 rounded-xl border border-pink-200 bg-pink-50 shadow-sm text-sm text-gray-700">🔺 <strong>GraphQL</strong></div>
+<div class="p-3 rounded-xl border border-green-200 bg-green-50 shadow-sm text-sm text-gray-700">⚡ <strong>gRPC</strong></div>
+<div class="p-3 rounded-xl border border-yellow-200 bg-yellow-50 shadow-sm text-sm text-gray-700">🧼 <strong>SOAP</strong></div>
+<div class="p-3 rounded-xl border border-purple-200 bg-purple-50 shadow-sm text-sm text-gray-700">📨 <strong>Event-Driven (EDA)</strong></div>
+<div class="p-3 rounded-xl border border-orange-200 bg-orange-50 shadow-sm text-sm text-gray-700">⬡ <strong>Hexagonal</strong></div>
+<div class="p-3 rounded-xl border border-indigo-200 bg-indigo-50 shadow-sm text-sm text-gray-700">🧅 <strong>Clean Architecture</strong></div>
+<div class="p-3 rounded-xl border border-red-200 bg-red-50 shadow-sm text-sm text-gray-700">🔀 <strong>CQRS</strong></div>
+<div class="p-3 rounded-xl border border-teal-200 bg-teal-50 shadow-sm text-sm text-gray-700">🔁 <strong>Saga Pattern</strong></div>
+<div class="p-3 rounded-xl border border-cyan-200 bg-cyan-50 shadow-sm text-sm text-gray-700">🚪 <strong>API Gateway</strong></div>
+<div class="p-3 rounded-xl border border-lime-200 bg-lime-50 shadow-sm text-sm text-gray-700">🖥️ <strong>BFF (Backend for Frontend)</strong></div>
+<div class="p-3 rounded-xl border border-fuchsia-200 bg-fuchsia-50 shadow-sm text-sm text-gray-700">🕸️ <strong>Service Mesh</strong></div>
+
+</div>
+
+---
+layout: section
+background: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=40
+---
+
+<div class="text-orange-300 text-sm tracking-widest uppercase font-semibold mb-2">Arquitectura en Profundidad</div>
+
+# Arquitectura Hexagonal
+
+<div class="text-gray-200 mt-2">También conocida como Ports & Adapters</div>
+
+---
+transition: slide-up
+---
+
+# ¿Qué es la Arquitectura Hexagonal?
+
+<div class="grid grid-cols-2 gap-8 mt-2">
+<div>
+
+Propuesta por **Alistair Cockburn** en 2005, su objetivo es **aislar la lógica de negocio** de los detalles externos (base de datos, frameworks, UI, APIs).
+
+<div class="mt-4 p-4 rounded-xl border border-orange-200 bg-orange-50 shadow-sm">
+  <div class="text-orange-700 text-sm italic">"La aplicación debe poder funcionar igual sea invocada por un usuario, un test automatizado o un script, y sin depender de una base de datos concreta."</div>
+</div>
+
+<div class="mt-4 text-sm text-gray-600">
+  También llamada <strong>Ports & Adapters</strong> porque el núcleo se comunica con el exterior mediante <strong>puertos</strong> (interfaces) y <strong>adaptadores</strong> (implementaciones).
+</div>
+
+</div>
+<div class="flex items-center justify-center">
+  <div class="p-6 rounded-2xl border border-orange-200 bg-orange-50 shadow-sm text-center">
+    <div class="text-5xl mb-3">⬡</div>
+    <div class="text-orange-700 font-bold">Dominio al centro</div>
+    <div class="text-gray-500 text-sm mt-2">Los detalles externos giran alrededor del núcleo, nunca al revés</div>
+  </div>
+</div>
+</div>
+
+---
+transition: slide-up
+---
+
+# Componentes Principales
+
+<div class="grid grid-cols-3 gap-4 mt-4">
+
+<div class="p-4 rounded-xl border border-orange-200 bg-orange-50 shadow-sm">
+  <div class="text-orange-600 font-bold mb-2">🧠 Dominio (Core)</div>
+  <div class="text-xs text-gray-600 space-y-1">
+    <p>El corazón de la aplicación. Contiene las entidades, reglas y lógica de negocio.</p>
+    <p class="mt-2">No conoce frameworks, bases de datos ni detalles externos.</p>
+  </div>
+</div>
+
+<div class="p-4 rounded-xl border border-blue-200 bg-blue-50 shadow-sm">
+  <div class="text-blue-600 font-bold mb-2">🔌 Puertos (Ports)</div>
+  <div class="text-xs text-gray-600 space-y-1">
+    <p>Interfaces que definen cómo el dominio se comunica con el exterior.</p>
+    <p class="mt-2">Contratos abstractos, sin implementación concreta.</p>
+  </div>
+</div>
+
+<div class="p-4 rounded-xl border border-green-200 bg-green-50 shadow-sm">
+  <div class="text-green-600 font-bold mb-2">🔗 Adaptadores (Adapters)</div>
+  <div class="text-xs text-gray-600 space-y-1">
+    <p>Implementaciones concretas de los puertos.</p>
+    <p class="mt-2">Conectan el dominio con BD, APIs, UI, mensajería, etc.</p>
+  </div>
+</div>
+
+</div>
+
+<div class="mt-6 p-4 rounded-xl border border-gray-200 bg-gray-50 text-center shadow-sm">
+  <div class="text-sm text-gray-700 font-mono">
+    Adaptador
+    <span class="text-blue-500 mx-2">→</span> Puerto (interfaz)
+    <span class="text-orange-500 mx-2">→</span> Dominio
+    <span class="text-orange-500 mx-2">←</span> Puerto (interfaz)
+    <span class="text-green-500 mx-2">←</span> Adaptador
+  </div>
+</div>
+
+---
+layout: two-cols
+layoutClass: gap-12
+transition: slide-up
+---
+
+# Puertos Primarios y Secundarios
+
+<div class="mt-4 space-y-3">
+
+<div class="p-3 rounded-lg border border-blue-200 bg-blue-50 shadow-sm">
+  <div class="text-blue-700 font-bold text-sm mb-1">🔵 Puertos Primarios (Driving)</div>
+  <div class="text-xs text-gray-600">El exterior invoca al dominio. Ejemplo: casos de uso que expone la aplicación.</div>
+  <div class="text-xs text-gray-400 mt-1 font-mono">UI, REST Controller, CLI, Tests</div>
+</div>
+
+<div class="p-3 rounded-lg border border-green-200 bg-green-50 shadow-sm">
+  <div class="text-green-700 font-bold text-sm mb-1">🟢 Puertos Secundarios (Driven)</div>
+  <div class="text-xs text-gray-600">El dominio invoca al exterior. Ejemplo: persistencia o mensajería.</div>
+  <div class="text-xs text-gray-400 mt-1 font-mono">Repository, Email, Message Queue</div>
+</div>
+
+</div>
+
+::right::
+
+# Adaptadores correspondientes
+
+<div class="mt-4 space-y-3">
+
+<div class="p-3 rounded-lg border border-blue-200 bg-blue-50 shadow-sm">
+  <div class="text-blue-700 font-bold text-sm mb-1">🔵 Adaptadores de Entrada</div>
+  <div class="text-xs text-gray-600">Reciben peticiones y llaman a los puertos primarios.</div>
+  <div class="text-xs text-gray-400 mt-1 font-mono">@RestController, GraphQL Resolver</div>
+</div>
+
+<div class="p-3 rounded-lg border border-green-200 bg-green-50 shadow-sm">
+  <div class="text-green-700 font-bold text-sm mb-1">🟢 Adaptadores de Salida</div>
+  <div class="text-xs text-gray-600">Implementan los puertos secundarios con tecnología concreta.</div>
+  <div class="text-xs text-gray-400 mt-1 font-mono">JpaRepository, RestClient, Kafka</div>
+</div>
+
+</div>
+
+---
+transition: slide-up
+---
+
+# Principios y Ventajas
+
+<div class="grid grid-cols-2 gap-8 mt-2">
+<div>
+
+### Principios clave
+
+<div class="mt-3 space-y-2 text-sm">
+<div class="flex gap-2 items-start p-2 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+  <span>🎯</span> <div><strong>Inversión de dependencias:</strong> el dominio define interfaces, los adaptadores las implementan</div>
+</div>
+<div class="flex gap-2 items-start p-2 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+  <span>🔒</span> <div><strong>Dominio aislado:</strong> no depende de nada externo</div>
+</div>
+<div class="flex gap-2 items-start p-2 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+  <span>🔄</span> <div><strong>Intercambiable:</strong> cambiar BD o framework sin tocar el núcleo</div>
+</div>
+</div>
+
+</div>
+<div>
+
+### Ventajas
+
+<div class="mt-3 space-y-2 text-sm">
+<div class="flex gap-2 items-start p-2 rounded-lg border border-green-200 bg-green-50 shadow-sm">
+  <span>🧪</span> <div><strong>Testeable:</strong> el dominio se prueba sin BD ni framework</div>
+</div>
+<div class="flex gap-2 items-start p-2 rounded-lg border border-green-200 bg-green-50 shadow-sm">
+  <span>🧩</span> <div><strong>Flexible:</strong> fácil cambiar o agregar adaptadores</div>
+</div>
+<div class="flex gap-2 items-start p-2 rounded-lg border border-green-200 bg-green-50 shadow-sm">
+  <span>📦</span> <div><strong>Mantenible:</strong> separación clara de responsabilidades</div>
+</div>
+<div class="flex gap-2 items-start p-2 rounded-lg border border-yellow-200 bg-yellow-50 shadow-sm">
+  <span>⚠️</span> <div><strong>Contra:</strong> más código inicial y curva de aprendizaje</div>
+</div>
+</div>
+
+</div>
+</div>
+
+---
+transition: slide-up
+---
+
+# Hexagonal en Spring Boot
+
+<div class="grid grid-cols-2 gap-8 mt-2">
+<div>
+
+### Estructura típica de paquetes
+
+<div class="mt-3 p-4 rounded-xl border border-gray-200 bg-gray-50 font-mono text-xs text-gray-700 shadow-sm leading-relaxed">
+com.curso<br>
+├── <span class="text-orange-600">domain/</span><br>
+│   ├── model <span class="text-gray-400">(Curso)</span><br>
+│   └── port <span class="text-gray-400">(interfaces)</span><br>
+├── <span class="text-blue-600">application/</span><br>
+│   └── service <span class="text-gray-400">(casos de uso)</span><br>
+└── <span class="text-green-600">infrastructure/</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── adapter.in <span class="text-gray-400">(Controller)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;└── adapter.out <span class="text-gray-400">(JPA Repo)</span>
+</div>
+
+</div>
+<div>
+
+### Mapeo de conceptos
+
+<div class="mt-3 space-y-2 text-xs">
+
+<div class="p-2 rounded-lg border border-orange-200 bg-orange-50 shadow-sm">
+  <strong class="text-orange-700">Puerto primario</strong> → interfaz <code>CursoUseCase</code>
+</div>
+<div class="p-2 rounded-lg border border-blue-200 bg-blue-50 shadow-sm">
+  <strong class="text-blue-700">Adaptador entrada</strong> → <code>CursoController</code>
+</div>
+<div class="p-2 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+  <strong class="text-gray-700">Dominio</strong> → <code>CursoService</code> implementa el caso de uso
+</div>
+<div class="p-2 rounded-lg border border-green-200 bg-green-50 shadow-sm">
+  <strong class="text-green-700">Puerto secundario</strong> → interfaz <code>CursoRepositoryPort</code>
+</div>
+<div class="p-2 rounded-lg border border-green-200 bg-green-50 shadow-sm">
+  <strong class="text-green-700">Adaptador salida</strong> → <code>CursoJpaAdapter</code> implementa el puerto
+</div>
+
+</div>
+
+</div>
+</div>
+
+---
+transition: slide-up
+---
+
+# Patrones de Diseño (GoF)
+
+<div class="grid grid-cols-3 gap-4 mt-4">
+
+<div class="p-4 rounded-xl border border-blue-200 bg-blue-50 shadow-sm">
+  <div class="text-blue-600 font-bold mb-2 text-sm">🏗️ Creacionales</div>
+  <ul class="text-xs text-gray-600 space-y-1">
+    <li>Singleton</li>
+    <li>Factory Method</li>
+    <li>Abstract Factory</li>
+    <li>Builder</li>
+    <li>Prototype</li>
+  </ul>
+</div>
+
+<div class="p-4 rounded-xl border border-green-200 bg-green-50 shadow-sm">
+  <div class="text-green-600 font-bold mb-2 text-sm">🧩 Estructurales</div>
+  <ul class="text-xs text-gray-600 space-y-1">
+    <li>Adapter</li>
+    <li>Bridge</li>
+    <li>Composite</li>
+    <li>Decorator</li>
+    <li>Facade</li>
+    <li>Flyweight</li>
+    <li>Proxy</li>
+  </ul>
+</div>
+
+<div class="p-4 rounded-xl border border-purple-200 bg-purple-50 shadow-sm">
+  <div class="text-purple-600 font-bold mb-2 text-sm">🔄 De Comportamiento</div>
+  <ul class="text-xs text-gray-600 space-y-1">
+    <li>Chain of Responsibility</li>
+    <li>Command</li>
+    <li>Interpreter</li>
+    <li>Iterator</li>
+    <li>Mediator</li>
+    <li>Memento</li>
+    <li>Observer</li>
+    <li>State</li>
+    <li>Strategy</li>
+    <li>Template Method</li>
+    <li>Visitor</li>
+  </ul>
+</div>
+
+</div>
+
+<div class="mt-4 text-xs text-gray-400 text-center">
+  23 patrones del Gang of Four (GoF) · Soluciones reutilizables a problemas comunes de diseño
+</div>
+
+---
+layout: section
+background: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=40
+---
+
+<div class="text-cyan-300 text-sm tracking-widest uppercase font-semibold mb-2">Automatización</div>
+
+# CI/CD
+
+<div class="text-gray-200 mt-2">Integración y Entrega Continua</div>
+
+---
+transition: slide-up
+---
+
+# ¿Qué es CI/CD?
+
+<div class="grid grid-cols-2 gap-8 mt-2">
+<div>
+
+<div class="p-4 rounded-xl border border-blue-200 bg-blue-50 shadow-sm mb-4">
+  <div class="text-blue-700 font-bold mb-1">🔄 CI — Integración Continua</div>
+  <div class="text-sm text-gray-600">Cada vez que subes código al repositorio, se compila y se ejecutan las pruebas automáticamente para detectar errores temprano.</div>
+</div>
+
+<div class="p-4 rounded-xl border border-green-200 bg-green-50 shadow-sm">
+  <div class="text-green-700 font-bold mb-1">🚀 CD — Entrega / Despliegue Continuo</div>
+  <div class="text-sm text-gray-600">Si las pruebas pasan, el código se despliega automáticamente a producción o a un entorno de pruebas.</div>
+</div>
+
+</div>
+<div>
+
+### ¿Por qué importa?
+
+<div class="mt-3 space-y-2 text-sm">
+<div class="flex gap-2 items-center p-2 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+  <span>⚡</span> Detecta errores antes de llegar a producción
+</div>
+<div class="flex gap-2 items-center p-2 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+  <span>🔁</span> Despliegues frecuentes y confiables
+</div>
+<div class="flex gap-2 items-center p-2 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+  <span>🤖</span> Elimina tareas manuales y errores humanos
+</div>
+<div class="flex gap-2 items-center p-2 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+  <span>⏱️</span> Entrega valor al usuario más rápido
+</div>
+</div>
+
+<div class="mt-4 flex gap-2 text-xs flex-wrap">
+  <span class="px-2 py-1 rounded-full border border-gray-300 bg-gray-100 text-gray-700">GitHub Actions</span>
+  <span class="px-2 py-1 rounded-full border border-orange-300 bg-orange-100 text-orange-700">GitLab CI</span>
+  <span class="px-2 py-1 rounded-full border border-red-300 bg-red-100 text-red-700">Jenkins</span>
+  <span class="px-2 py-1 rounded-full border border-blue-300 bg-blue-100 text-blue-700">CircleCI</span>
+</div>
+
+</div>
+</div>
+
+---
+transition: slide-up
+---
+
+# Pipeline CI/CD — Ejemplo Real
+
+<div class="grid grid-cols-4 gap-3 mt-6">
+
+<div class="p-4 rounded-xl border border-blue-200 bg-blue-50 text-center shadow-sm">
+  <div class="text-2xl mb-2">📥</div>
+  <div class="text-blue-600 font-bold text-sm">1. Build</div>
+  <div class="text-xs text-gray-500 mt-1">Compila el proyecto con Maven</div>
+</div>
+
+<div class="p-4 rounded-xl border border-purple-200 bg-purple-50 text-center shadow-sm">
+  <div class="text-2xl mb-2">🧪</div>
+  <div class="text-purple-600 font-bold text-sm">2. Test</div>
+  <div class="text-xs text-gray-500 mt-1">Ejecuta pruebas JUnit y Mockito</div>
+</div>
+
+<div class="p-4 rounded-xl border border-yellow-200 bg-yellow-50 text-center shadow-sm">
+  <div class="text-2xl mb-2">📦</div>
+  <div class="text-yellow-600 font-bold text-sm">3. Package</div>
+  <div class="text-xs text-gray-500 mt-1">Genera el .jar o imagen Docker</div>
+</div>
+
+<div class="p-4 rounded-xl border border-green-200 bg-green-50 text-center shadow-sm">
+  <div class="text-2xl mb-2">🚀</div>
+  <div class="text-green-600 font-bold text-sm">4. Deploy</div>
+  <div class="text-xs text-gray-500 mt-1">Despliega a producción</div>
+</div>
+
+</div>
+
+<div class="mt-6 p-4 rounded-xl border border-cyan-200 bg-cyan-50 shadow-sm">
+  <div class="text-cyan-700 font-bold mb-2 text-sm">💡 Ejemplo real: esta misma presentación</div>
+  <div class="text-sm text-gray-600 font-mono">
+    git push
+    <span class="text-cyan-500 mx-2">→</span> GitHub
+    <span class="text-cyan-500 mx-2">→</span> Vercel detecta el cambio
+    <span class="text-cyan-500 mx-2">→</span> Build automático
+    <span class="text-cyan-500 mx-2">→</span> Despliegue en vivo
+  </div>
+  <div class="text-xs text-gray-400 mt-2">Cada vez que subimos cambios a GitHub, Vercel reconstruye y publica la presentación automáticamente. Eso es CD en acción.</div>
+</div>
+
+---
 layout: center
 class: text-center
 ---
