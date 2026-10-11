@@ -828,6 +828,30 @@ Archivo central de configuración donde se define la conexión a la base de dato
 </div>
 
 ---
+transition: slide-up
+---
+
+# `application.properties` en código
+
+```properties {all|1-4|6-7|9-10}
+# Conexión a la base de datos (MySQL)
+spring.datasource.url=jdbc:mysql://localhost:3306/cursos_db
+spring.datasource.username=root
+spring.datasource.password=secret
+
+# Dialecto de Hibernate
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+# Comportamiento del esquema y SQL en consola
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+
+<div class="text-xs text-gray-400 mt-2 text-center">
+  <code>ddl-auto=update</code> actualiza el esquema sin borrar datos · ideal para desarrollo
+</div>
+
+---
 layout: two-cols
 layoutClass: gap-12
 transition: slide-up
@@ -870,6 +894,36 @@ transition: slide-up
   <code class="text-orange-600">@Column</code> — Configura propiedades de una columna
 </div>
 
+</div>
+
+---
+transition: slide-up
+---
+
+# La Entidad `Curso` en código
+
+```java {all|1-2|4-5|7-9|11-13|all}
+@Entity
+@Table(name = "cursos")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Curso {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, length = 100)
+    private String nombre;
+    private String descripcion;
+    private Double precio;
+    private Boolean activo;
+}
+```
+
+<div class="text-xs text-gray-400 mt-2 text-center">
+  Con Lombok (<code>@Data</code>) no escribimos getters, setters, equals ni toString
 </div>
 
 ---
@@ -976,6 +1030,29 @@ Interfaz que abstrae el acceso a la base de datos. Spring Data JPA genera la imp
 
 <div class="mt-3 p-3 rounded-lg border border-blue-200 bg-blue-50 text-xs text-blue-700 shadow-sm">
   Para consultas complejas: <strong>@Query</strong> con JPQL
+</div>
+
+---
+transition: slide-up
+---
+
+# El Repository en código
+
+```java {all|1|3|5|7-8|all}
+@Repository
+public interface CursoRepository extends JpaRepository<Curso, Long> {
+
+    List<Curso> findByActivo(Boolean activo);
+
+    List<Curso> findByNombreContaining(String texto);
+
+    @Query("SELECT c FROM Curso c WHERE c.precio < :max")
+    List<Curso> buscarPorPrecioMenorA(@Param("max") Double max);
+}
+```
+
+<div class="text-xs text-gray-400 mt-2 text-center">
+  Al extender <code>JpaRepository</code> heredamos el CRUD completo sin escribir implementación
 </div>
 
 ---
@@ -1160,6 +1237,37 @@ transition: slide-up
   <span class="ml-auto text-red-600 font-bold">204</span>
 </div>
 
+</div>
+
+---
+transition: slide-up
+---
+
+# El Controller en código
+
+```java {all|1-3|5-6|8-11|13-17|all}
+@RestController
+@RequestMapping("/api/v1/cursos")
+@RequiredArgsConstructor
+public class CursoController {
+
+    private final CursoService cursoService;
+
+    @GetMapping
+    public ResponseEntity<List<Curso>> listar() {
+        return ResponseEntity.ok(cursoService.listarTodos());
+    }
+
+    @PostMapping
+    public ResponseEntity<Curso> crear(@Valid @RequestBody Curso curso) {
+        Curso creado = cursoService.crear(curso);
+        return ResponseEntity.status(HttpStatus.CREATED).body(creado);
+    }
+}
+```
+
+<div class="text-xs text-gray-400 mt-2 text-center">
+  <code>ResponseEntity</code> permite controlar el código HTTP · <code>@Valid</code> activa las validaciones
 </div>
 
 ---
