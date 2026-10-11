@@ -1830,6 +1830,149 @@ transition: slide-up
 </div>
 
 ---
+layout: section
+background: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=40
+---
+
+<div class="text-indigo-300 text-sm tracking-widest uppercase font-semibold mb-2">Cultura y Prácticas</div>
+
+# DevOps
+
+<div class="text-gray-200 mt-2">Desarrollo + Operaciones trabajando como uno solo</div>
+
+---
+transition: slide-up
+---
+
+# ¿Qué es DevOps?
+
+<div class="grid grid-cols-2 gap-8 mt-2">
+<div>
+
+**DevOps** es una cultura y conjunto de prácticas que unen el desarrollo (**Dev**) y las operaciones (**Ops**) para entregar software de forma más rápida, confiable y continua.
+
+<div class="mt-4 p-4 rounded-xl border border-indigo-200 bg-indigo-50 shadow-sm">
+  <div class="text-indigo-700 text-sm italic">"No es una herramienta ni un rol, es una forma de trabajar donde desarrollo y operaciones comparten la responsabilidad del ciclo de vida completo."</div>
+</div>
+
+<div class="mt-4 text-sm text-gray-600">
+  CI/CD es una de las prácticas <strong>dentro</strong> de DevOps, no su totalidad.
+</div>
+
+</div>
+<div class="flex items-center justify-center">
+  <div class="p-6 rounded-2xl border border-indigo-200 bg-indigo-50 shadow-sm text-center">
+    <div class="text-5xl mb-3">♾️</div>
+    <div class="text-indigo-700 font-bold">Ciclo infinito</div>
+    <div class="text-gray-500 text-sm mt-2">DevOps se representa con el símbolo del infinito: un flujo continuo sin fin</div>
+  </div>
+</div>
+</div>
+
+---
+transition: slide-up
+---
+
+# El Ciclo de DevOps
+
+<div class="grid grid-cols-4 gap-3 mt-4">
+
+<div class="p-3 rounded-xl border border-blue-200 bg-blue-50 text-center shadow-sm">
+  <div class="text-2xl mb-1">📋</div>
+  <div class="text-blue-600 font-bold text-sm">Plan</div>
+  <div class="text-xs text-gray-500 mt-1">Planificar features</div>
+</div>
+<div class="p-3 rounded-xl border border-green-200 bg-green-50 text-center shadow-sm">
+  <div class="text-2xl mb-1">💻</div>
+  <div class="text-green-600 font-bold text-sm">Code</div>
+  <div class="text-xs text-gray-500 mt-1">Escribir el código</div>
+</div>
+<div class="p-3 rounded-xl border border-yellow-200 bg-yellow-50 text-center shadow-sm">
+  <div class="text-2xl mb-1">🔨</div>
+  <div class="text-yellow-600 font-bold text-sm">Build</div>
+  <div class="text-xs text-gray-500 mt-1">Compilar</div>
+</div>
+<div class="p-3 rounded-xl border border-purple-200 bg-purple-50 text-center shadow-sm">
+  <div class="text-2xl mb-1">🧪</div>
+  <div class="text-purple-600 font-bold text-sm">Test</div>
+  <div class="text-xs text-gray-500 mt-1">Probar</div>
+</div>
+<div class="p-3 rounded-xl border border-pink-200 bg-pink-50 text-center shadow-sm">
+  <div class="text-2xl mb-1">📦</div>
+  <div class="text-pink-600 font-bold text-sm">Release</div>
+  <div class="text-xs text-gray-500 mt-1">Publicar versión</div>
+</div>
+<div class="p-3 rounded-xl border border-orange-200 bg-orange-50 text-center shadow-sm">
+  <div class="text-2xl mb-1">🚀</div>
+  <div class="text-orange-600 font-bold text-sm">Deploy</div>
+  <div class="text-xs text-gray-500 mt-1">Desplegar</div>
+</div>
+<div class="p-3 rounded-xl border border-teal-200 bg-teal-50 text-center shadow-sm">
+  <div class="text-2xl mb-1">⚙️</div>
+  <div class="text-teal-600 font-bold text-sm">Operate</div>
+  <div class="text-xs text-gray-500 mt-1">Operar en prod</div>
+</div>
+<div class="p-3 rounded-xl border border-cyan-200 bg-cyan-50 text-center shadow-sm">
+  <div class="text-2xl mb-1">📊</div>
+  <div class="text-cyan-600 font-bold text-sm">Monitor</div>
+  <div class="text-xs text-gray-500 mt-1">Monitorear</div>
+</div>
+
+</div>
+
+<div class="mt-4 text-xs text-gray-400 text-center">
+  El monitoreo retroalimenta la planificación → el ciclo se repite de forma continua ♾️
+</div>
+
+---
+transition: slide-up
+---
+
+# Prácticas y Herramientas DevOps
+
+<div class="grid grid-cols-2 gap-6 mt-4">
+
+<div class="space-y-3">
+<div class="text-sm font-bold text-gray-700">Prácticas clave</div>
+
+<div class="p-3 rounded-lg border border-gray-200 bg-gray-50 text-sm shadow-sm">
+  <span class="text-blue-600 font-bold">IaC</span> — Infraestructura como Código <span class="text-xs text-gray-400 block">definir servidores con código versionable</span>
+</div>
+<div class="p-3 rounded-lg border border-gray-200 bg-gray-50 text-sm shadow-sm">
+  <span class="text-green-600 font-bold">CI/CD</span> — Integración y entrega continua
+</div>
+<div class="p-3 rounded-lg border border-gray-200 bg-gray-50 text-sm shadow-sm">
+  <span class="text-purple-600 font-bold">Contenedores</span> — empaquetar la app con sus dependencias
+</div>
+<div class="p-3 rounded-lg border border-gray-200 bg-gray-50 text-sm shadow-sm">
+  <span class="text-orange-600 font-bold">Monitoreo</span> — métricas, logs y alertas
+</div>
+
+</div>
+
+<div class="space-y-3">
+<div class="text-sm font-bold text-gray-700">Herramientas comunes</div>
+
+<div class="grid grid-cols-2 gap-2 text-xs">
+  <span class="px-2 py-2 rounded-lg border border-blue-200 bg-blue-50 text-blue-700 text-center">🐳 Docker</span>
+  <span class="px-2 py-2 rounded-lg border border-cyan-200 bg-cyan-50 text-cyan-700 text-center">☸️ Kubernetes</span>
+  <span class="px-2 py-2 rounded-lg border border-purple-200 bg-purple-50 text-purple-700 text-center">🔧 Terraform</span>
+  <span class="px-2 py-2 rounded-lg border border-red-200 bg-red-50 text-red-700 text-center">🤖 Ansible</span>
+  <span class="px-2 py-2 rounded-lg border border-gray-200 bg-gray-50 text-gray-700 text-center">⚙️ GitHub Actions</span>
+  <span class="px-2 py-2 rounded-lg border border-orange-200 bg-orange-50 text-orange-700 text-center">🏗️ Jenkins</span>
+  <span class="px-2 py-2 rounded-lg border border-green-200 bg-green-50 text-green-700 text-center">📊 Prometheus</span>
+  <span class="px-2 py-2 rounded-lg border border-yellow-200 bg-yellow-50 text-yellow-700 text-center">📈 Grafana</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="mt-4 p-3 rounded-xl border border-indigo-200 bg-indigo-50 text-center text-sm text-indigo-700 shadow-sm">
+  🎯 <strong>Objetivo DevOps:</strong> entregar software de calidad, rápido y de forma repetible, con colaboración entre equipos.
+</div>
+
+---
 layout: center
 class: text-center
 ---
